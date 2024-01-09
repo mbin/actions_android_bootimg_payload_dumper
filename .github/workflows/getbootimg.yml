@@ -16,7 +16,7 @@ on:
         PARTITIONS:
           description: 'Partitions which you need to extract(Such as boot,vendor_dlkm,...,vendor_boot)'
           required: true
-          default: "boot"
+          default: "init_boot"
           type: string
         
     
@@ -36,7 +36,9 @@ jobs:
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/apt/sources.list.d
         sudo -E apt-get -y purge azure-cli ghc* zulu* llvm* firefox google* dotnet* powershell openjdk* mysql* php*
         sudo -E apt-get -y autoremove --purge
-        sudo -E apt-get clean 
+        sudo -E apt-get clean
+        sudo echo "47.74.196.250 bigota.d.miui.com" >> /etc/hosts
+        sudo echo "47.74.196.250 hugeota.d.miui.com" >> /etc/hosts
         
     - name: Clone the tools source code
       run: |
