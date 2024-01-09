@@ -39,6 +39,7 @@ jobs:
         sudo -E apt-get clean
         sudo echo "47.74.196.250 bigota.d.miui.com" >> /etc/hosts
         sudo echo "47.74.196.250 hugeota.d.miui.com" >> /etc/hosts
+        sudo cat /etc/hosts
         
     - name: Clone the tools source code
       run: |
